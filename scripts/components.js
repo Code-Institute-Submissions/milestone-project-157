@@ -41,15 +41,36 @@ function buildLeftPanel(leftPanel) {
   return { userInput, messagePanel, sendButton };
 }
 
-function buildRightPanel(rightPanel) {
+function buildRightPanel(messagePanel, rightPanel) {
   // create duck img element
   let duckImg = document.createElement("img");
   $(duckImg).attr("id", "duck-image");
   $(duckImg).attr("src", "assets/images/rubber_duck.png");
   $(duckImg).attr("alt", "Rubber Duck");
   // create button container
-  let btnContainer = document.createElement("div");
+  let btnContainer = document.createElement("section");
   $(btnContainer).attr("class", "btn-container");
+  $(rightPanel).append(duckImg, btnContainer);
+  let { qBtn, iBtn, sBtn } = buildOptions();
+  $(btnContainer).append(qBtn, iBtn, sBtn);
+  $(qBtn).click(() => {
+    console.log("Question Button Clicked!");
+    // make call to 8-ball API
+  });
+  $(iBtn).click(async () => {
+    console.log("Inspiration Button Clicked!");
+    // make API call to inspirational Quotes
+    const data = await getQuote();
+    const quote = data.contents.quotes[0].quote;
+    message(quote, "duck", messagePanel);
+  });
+  $(sBtn).click(() => {
+    console.log("Success Button Clicked!");
+    // trigger success modal
+  });
+}
+
+function buildOptions() {
   // create three buttons
   let qBtn = document.createElement("button");
   $(qBtn).attr("class", "duck-btn");
@@ -60,8 +81,6 @@ function buildRightPanel(rightPanel) {
   let sBtn = document.createElement("button");
   $(sBtn).attr("class", "duck-btn");
   $(sBtn).attr("id", "success-btn");
-  $(btnContainer).append(qBtn, iBtn, sBtn);
-  $(rightPanel).append(duckImg, btnContainer);
   return { qBtn, iBtn, sBtn };
 }
 
