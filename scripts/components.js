@@ -13,15 +13,39 @@ const createHomepage = () => {
 
 function buildLeftPanel(leftPanel) {
   let headerPanel = document.createElement("section");
-  $(headerPanel).attr("class", "header-panel");
+  $(headerPanel).attr("class", "left-header-panel");
   let messagePanel = document.createElement("section");
-  $(messagePanel).attr("class", "message-panel");
+  $(messagePanel).attr("class", "left-message-panel");
   let footerPanel = document.createElement("section");
-  $(footerPanel).attr("class", "footer-panel");
+  $(footerPanel).attr("class", "left-footer-panel");
   $(leftPanel).append(headerPanel, messagePanel, footerPanel);
   // create initial duck messages
   message("Hello, Im a duck", "duck", messagePanel);
-  message("Some further info", "duck", messagePanel);
+  message(
+    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
+    "duck",
+    messagePanel
+  );
+  message(
+    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
+    "user",
+    messagePanel
+  );
+  message(
+    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
+    "user",
+    messagePanel
+  );
+  message(
+    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
+    "user",
+    messagePanel
+  );
+  message(
+    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
+    "duck",
+    messagePanel
+  );
 }
 
 function message(text, type, container) {
