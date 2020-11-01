@@ -25,6 +25,15 @@ $(document).ready(function () {
         // reset the input
         $(userInput).val("");
       }
+      // check if users message ended with question mark
+      if (userMsg.charAt(userMsg.length - 1) === "?") {
+        console.log("User asked question");
+        message(
+          "I can see you asked me a question, I'd love to help, but I am a duck...",
+          "duck",
+          messagePanel
+        );
+      }
     });
   });
 });

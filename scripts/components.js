@@ -29,7 +29,7 @@ function buildLeftPanel(leftPanel) {
   $(footerPanel).append(userInput, sendButton);
   // create initial duck messages
   message(
-    "Yes. I am a duck. 🦆 Yes, I am listening. What’s up? 👂",
+    "Yes, I am a duck 🦆 Yes, I am listening 👂 What’s up?",
     "duck",
     messagePanel
   );
