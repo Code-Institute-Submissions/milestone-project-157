@@ -14,6 +14,9 @@ const createHomepage = () => {
 function buildLeftPanel(leftPanel) {
   let headerPanel = document.createElement("section");
   $(headerPanel).attr("class", "left-header-panel");
+  let title = document.createElement("h2");
+  $(title).text("Rubber Duck");
+  $(headerPanel).append(title);
   let messagePanel = document.createElement("section");
   $(messagePanel).attr("class", "left-message-panel");
   let footerPanel = document.createElement("section");
@@ -43,6 +46,11 @@ function buildLeftPanel(leftPanel) {
 }
 
 function buildRightPanel(messagePanel, rightPanel) {
+  // create darkmode toggle
+  let modeToggle = document.createElement("input");
+  $(modeToggle).attr("type", "radio");
+  $(modeToggle).attr("id", "mode");
+  $(modeToggle).attr("value", "light");
   // create duck img element
   let duckImg = document.createElement("img");
   $(duckImg).attr("id", "duck-image");
@@ -51,7 +59,7 @@ function buildRightPanel(messagePanel, rightPanel) {
   // create button container
   let btnContainer = document.createElement("section");
   $(btnContainer).attr("class", "btn-container");
-  $(rightPanel).append(duckImg, btnContainer);
+  $(rightPanel).append(modeToggle, duckImg, btnContainer);
   let { qBtn, iBtn, sBtn } = buildOptions();
   $(btnContainer).append(qBtn, iBtn, sBtn);
 

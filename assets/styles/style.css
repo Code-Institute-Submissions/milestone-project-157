@@ -115,6 +115,18 @@ body {
   color: white;
   font-size: 36px;
   text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.left-header-panel > h2 {
+  width: 100%;
+  font-size: 24px;
+  padding-left: 8px;
+  color: white;
+  font-weight: 200;
 }
 
 .left-message-panel {
