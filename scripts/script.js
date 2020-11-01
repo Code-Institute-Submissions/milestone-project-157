@@ -1,15 +1,16 @@
 $(document).ready(function () {
   //  Splash screen
   let percentage = 0;
-  while (percentage < 100) {
+  let timer = setInterval(() => {
     percentage++;
     $(".loading-bar").css("width", `${percentage}%`);
-  }
-  if (percentage === 100) {
-    $(".start-button").attr("disabled", false).removeClass("disabled-btn");
-  }
+    if (percentage === 100) {
+      $(".start-button").attr("disabled", false).removeClass("disabled-btn");
+      clearInterval(timer);
+    }
+  }, 25);
 
-  $(".start-button").on("click", function () {
+  $(".start-button").on("click", () => {
     removeElemByClass(["heading", "loading-container", "start-button"]);
     let { home, leftPanel, rightPanel } = createHomepage();
     let { userInput, messagePanel, sendButton } = buildLeftPanel(leftPanel);
@@ -27,12 +28,14 @@ $(document).ready(function () {
       }
       // check if users message ended with question mark
       if (userMsg.charAt(userMsg.length - 1) === "?") {
-        console.log("User asked question");
-        message(
-          "I can see you asked me a question, I'd love to help, but I am a duck...",
-          "duck",
-          messagePanel
-        );
+        console.log("User asked a question");
+        setTimeout(() => {
+          // choose a randome duck response
+          const response = Math.floor(
+            Math.random() * duckQuestionResponses.length
+          );
+          message(duckQuestionResponses[response], "duck", messagePanel);
+        }, 1000);
       }
     });
   });

@@ -24,7 +24,6 @@ function buildLeftPanel(leftPanel) {
   // create send button
   let sendButton = document.createElement("button");
   $(sendButton).attr("class", "send-msg-btn");
-  // $(sendButton).html("send");
   // append to footer panel
   $(footerPanel).append(userInput, sendButton);
   // create initial duck messages
@@ -33,11 +32,13 @@ function buildLeftPanel(leftPanel) {
     "duck",
     messagePanel
   );
-  message(
-    "I will try to preducked the best times to respond, but if you would like to get some feedback, click the red button.\n\n If instead you would like something more inspirational, click the yellow button.\n\n When you arrive at a solution to your problem, congratulations! Choose the green button to complete your Rubber Ducky session!",
-    "duck",
-    messagePanel
-  );
+  setTimeout(() => {
+    message(
+      "I will try to preducked the best times to respond, but if you would like to get some feedback, click the <span class='red'>red</span> button.\n\n If instead you would like something more inspirational, click the <span class='yellow'>yellow</span> button.\n\n When you arrive at a solution to your problem, congratulations! Choose the <span class='green'>green</span> button to complete your Rubber Ducky session!",
+      "duck",
+      messagePanel
+    );
+  }, 1000);
   return { userInput, messagePanel, sendButton };
 }
 
@@ -53,16 +54,25 @@ function buildRightPanel(messagePanel, rightPanel) {
   $(rightPanel).append(duckImg, btnContainer);
   let { qBtn, iBtn, sBtn } = buildOptions();
   $(btnContainer).append(qBtn, iBtn, sBtn);
-  $(qBtn).click(() => {
+
+  $(qBtn).click(async () => {
     console.log("Question Button Clicked!");
     // make call to 8-ball API
+    try {
+      const { magic } = await eightBallAPI();
+      console.log(magic.answer);
+      message(magic.answer, "duck", messagePanel);
+    } catch (err) {
+      message("Messed up...", "duck", messagePanel);
+    }
   });
+
   $(iBtn).click(async () => {
     console.log("Inspiration Button Clicked!");
     try {
       // make API call to inspirational Quotes
-      const data = await getQuote();
-      const quote = data.contents.quotes[0].quote;
+      const { contents } = await getQuote();
+      const quote = contents.quotes[0].quote;
       message(quote, "duck", messagePanel);
     } catch (err) {
       message(
@@ -95,7 +105,7 @@ function buildOptions() {
 function message(text, type, container) {
   const msg = document.createElement("div");
   $(msg).attr("class", `${type}-message`);
-  $(msg).text(text);
+  $(msg).html(text);
   $(container).append(msg);
   return msg;
 }

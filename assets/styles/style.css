@@ -170,7 +170,10 @@ body {
   margin: 8px 16px;
   align-self: flex-end;
   white-space: pre-line;
-  /* justify-self: flex-end; */
+  animation: messageAnim;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }
 
 .user-message {
@@ -183,6 +186,22 @@ body {
   text-align: left;
   margin: 8px 16px;
   align-self: flex-start;
+  animation: messageAnim;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes messageAnim {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Right Panel */
@@ -210,6 +229,22 @@ body {
   height: 100px;
   width: 100px;
   border-radius: 50%;
+  transition: all 200ms ease-in-out;
+}
+
+.red {
+  color: #ff8097;
+  font-style: italic;
+}
+
+.yellow {
+  color: #fff280;
+  font-style: italic;
+}
+
+.green {
+  color: #80ffa4;
+  font-style: italic;
 }
 
 #question-btn {
@@ -217,12 +252,27 @@ body {
   box-shadow: 0 10px 0 #a95564;
 }
 
+#question-btn:hover {
+  transform: translateY(5px);
+  box-shadow: 0 5px 0 #a95564;
+}
+
 #inspiration-btn {
   background-color: #fff280;
   box-shadow: 0 10px 0 #a69d51;
 }
 
+#inspiration-btn:hover {
+  transform: translateY(5px);
+  box-shadow: 0 5px 0 #a69d51;
+}
+
 #success-btn {
   background-color: #80ffa4;
   box-shadow: 0 10px 0 #51a163;
+}
+
+#success-btn:hover {
+  transform: translateY(5px);
+  box-shadow: 0 5px 0 #51a163;
 }
