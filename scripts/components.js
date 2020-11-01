@@ -59,10 +59,18 @@ function buildRightPanel(messagePanel, rightPanel) {
   });
   $(iBtn).click(async () => {
     console.log("Inspiration Button Clicked!");
-    // make API call to inspirational Quotes
-    const data = await getQuote();
-    const quote = data.contents.quotes[0].quote;
-    message(quote, "duck", messagePanel);
+    try {
+      // make API call to inspirational Quotes
+      const data = await getQuote();
+      const quote = data.contents.quotes[0].quote;
+      message(quote, "duck", messagePanel);
+    } catch (err) {
+      message(
+        "I'm all out of quotes for now, you'll have to wait until I can think of more...",
+        "duck",
+        messagePanel
+      );
+    }
   });
   $(sBtn).click(() => {
     console.log("Success Button Clicked!");
