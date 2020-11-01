@@ -38,7 +38,7 @@ function buildLeftPanel(leftPanel) {
     "duck",
     messagePanel
   );
-  return { userInput, sendButton };
+  return { userInput, messagePanel, sendButton };
 }
 
 function message(text, type, container) {
