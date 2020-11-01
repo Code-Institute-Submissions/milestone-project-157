@@ -19,33 +19,26 @@ function buildLeftPanel(leftPanel) {
   let footerPanel = document.createElement("section");
   $(footerPanel).attr("class", "left-footer-panel");
   $(leftPanel).append(headerPanel, messagePanel, footerPanel);
+  // create the input element
+  let userInput = input("Pour out your thoughts", "text", "user-input");
+  // create send button
+  let sendButton = document.createElement("button");
+  $(sendButton).attr("class", "send-msg-btn");
+  // $(sendButton).html("send");
+  // append to footer panel
+  $(footerPanel).append(userInput, sendButton);
   // create initial duck messages
-  message("Hello, Im a duck", "duck", messagePanel);
   message(
-    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
+    "Yes. I am a duck. 🦆 Yes, I am listening. What’s up? 👂",
     "duck",
     messagePanel
   );
   message(
-    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
-    "user",
-    messagePanel
-  );
-  message(
-    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
-    "user",
-    messagePanel
-  );
-  message(
-    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
-    "user",
-    messagePanel
-  );
-  message(
-    "Some further info, this is a big ole chunk of text. I am testing to see what it will look like when I drop this onto the page. I surely hope it will fit to some degree.",
+    "I will try to preducked the best times to respond, but if you would like to get some feedback, click the red button.\n\n If instead you would like something more inspirational, click the yellow button.\n\n When you arrive at a solution to your problem, congratulations! Choose the green button to complete your Rubber Ducky session!",
     "duck",
     messagePanel
   );
+  return { userInput, sendButton };
 }
 
 function message(text, type, container) {
@@ -56,12 +49,11 @@ function message(text, type, container) {
   return msg;
 }
 
-function input(placeholder, type, id, container) {
+function input(placeholder, type, id) {
   const ip = document.createElement("input");
   $(ip).attr("class", "input");
   $(ip).attr("type", type);
   $(ip).attr("id", id);
   $(ip).attr("placeholder", placeholder);
-  $(container).append(ip);
   return ip;
 }

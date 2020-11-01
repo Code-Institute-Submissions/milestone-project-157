@@ -12,8 +12,10 @@ $(document).ready(function () {
   $(".start-button").on("click", function () {
     removeElemByClass(["heading", "loading-container", "start-button"]);
     let { home, leftPanel, rightPanel } = createHomepage();
-    buildLeftPanel(leftPanel);
-    // message("Initial text", leftPanel);
-    // input("Enter your message here", "text", "user-input", leftPanel);
+    let { userInput, sendButton } = buildLeftPanel(leftPanel);
+
+    $(sendButton).click(() => {
+      console.log("Send message button was clicked!");
+    });
   });
 });
