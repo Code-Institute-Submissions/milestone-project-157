@@ -41,6 +41,30 @@ function buildLeftPanel(leftPanel) {
   return { userInput, messagePanel, sendButton };
 }
 
+function buildRightPanel(rightPanel) {
+  // create duck img element
+  let duckImg = document.createElement("img");
+  $(duckImg).attr("id", "duck-image");
+  $(duckImg).attr("src", "assets/images/rubber_duck.png");
+  $(duckImg).attr("alt", "Rubber Duck");
+  // create button container
+  let btnContainer = document.createElement("div");
+  $(btnContainer).attr("class", "btn-container");
+  // create three buttons
+  let qBtn = document.createElement("button");
+  $(qBtn).attr("class", "duck-btn");
+  $(qBtn).attr("id", "question-btn");
+  let iBtn = document.createElement("button");
+  $(iBtn).attr("class", "duck-btn");
+  $(iBtn).attr("id", "inspiration-btn");
+  let sBtn = document.createElement("button");
+  $(sBtn).attr("class", "duck-btn");
+  $(sBtn).attr("id", "success-btn");
+  $(btnContainer).append(qBtn, iBtn, sBtn);
+  $(rightPanel).append(duckImg, btnContainer);
+  return { qBtn, iBtn, sBtn };
+}
+
 function message(text, type, container) {
   const msg = document.createElement("div");
   $(msg).attr("class", `${type}-message`);

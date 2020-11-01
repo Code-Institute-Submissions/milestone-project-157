@@ -13,6 +13,7 @@ $(document).ready(function () {
     removeElemByClass(["heading", "loading-container", "start-button"]);
     let { home, leftPanel, rightPanel } = createHomepage();
     let { userInput, messagePanel, sendButton } = buildLeftPanel(leftPanel);
+    let { questionBtn, inspoBtn, successBtn } = buildRightPanel(rightPanel);
 
     $(sendButton).click(() => {
       console.log("Send message button was clicked!");
@@ -24,6 +25,18 @@ $(document).ready(function () {
         // reset the input
         $(userInput).val("");
       }
+    });
+
+    $(questionBtn).click(() => {
+      console.log("questionBtn clicked!");
+    });
+
+    $(inspoBtn).click(() => {
+      console.log("inspoBtn clicked!");
+    });
+
+    $(successBtn).click(() => {
+      console.log("successBtn clicked!");
     });
   });
 });
