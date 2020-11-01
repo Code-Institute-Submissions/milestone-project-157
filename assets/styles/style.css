@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+button:focus,
+input:focus {
+  outline: none;
+}
+
 body {
   background-color: white;
   font-family: "Scada", sans-serif;
@@ -138,10 +143,6 @@ body {
   font-size: 16px;
   color: white;
   padding-left: 8px;
-}
-
-#user-input:focus {
-  outline: none;
 }
 
 .send-msg-btn {

@@ -16,12 +16,14 @@ $(document).ready(function () {
 
     $(sendButton).click(() => {
       console.log("Send message button was clicked!");
-      let test = $(userInput).val();
-      console.log(test);
-      // check message for errors here
-      message(test, "user", messagePanel);
-      // reset the input
-      $(userInput).val("");
+      let userMsg = $(userInput).val();
+      if (userMsg === "") return;
+      else {
+        // check message for errors here
+        message(userMsg, "user", messagePanel);
+        // reset the input
+        $(userInput).val("");
+      }
     });
   });
 });
