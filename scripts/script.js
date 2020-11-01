@@ -12,7 +12,8 @@ $(document).ready(function () {
   $(".start-button").on("click", function () {
     removeElemByClass(["heading", "loading-container", "start-button"]);
     let { home, leftPanel, rightPanel } = createHomepage();
-    message("Initial text", leftPanel);
-    input("Enter your message here", "text", "user-input", leftPanel);
+    buildLeftPanel(leftPanel);
+    // message("Initial text", leftPanel);
+    // input("Enter your message here", "text", "user-input", leftPanel);
   });
 });
