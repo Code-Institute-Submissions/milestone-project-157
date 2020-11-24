@@ -23,7 +23,7 @@ function buildLeftPanel(leftPanel) {
   $(footerPanel).attr("class", "left-footer-panel");
   $(leftPanel).append(headerPanel, messagePanel, footerPanel);
   // create the input element
-  let userInput = input("Pour out your thoughts", "text", "user-input");
+  let userInput = input("Type here", "text", "user-input");
   // create send button
   let sendButton = document.createElement("button");
   $(sendButton).attr("class", "send-msg-btn");
@@ -48,9 +48,9 @@ function buildLeftPanel(leftPanel) {
 function buildRightPanel(messagePanel, rightPanel) {
   // create darkmode toggle
   let modeToggle = document.createElement("input");
-  $(modeToggle).attr("type", "radio");
+  $(modeToggle).attr("type", "checkbox");
   $(modeToggle).attr("id", "mode");
-  $(modeToggle).attr("value", "light");
+  // $(modeToggle).attr("value", "light");
   // create duck img element
   let duckImg = document.createElement("img");
   $(duckImg).attr("id", "duck-image");
@@ -62,6 +62,17 @@ function buildRightPanel(messagePanel, rightPanel) {
   $(rightPanel).append(modeToggle, duckImg, btnContainer);
   let { qBtn, iBtn, sBtn } = buildOptions();
   $(btnContainer).append(qBtn, iBtn, sBtn);
+
+  $(modeToggle).change(function () {
+    if (this.checked) {
+      console.log("Checked");
+      $(rightPanel).addClass("darkmode");
+      $(messagePanel).addClass("darkmode");
+    } else {
+      $(rightPanel).removeClass("darkmode");
+      $(messagePanel).removeClass("darkmode");
+    }
+  });
 
   $(qBtn).click(async () => {
     console.log("Question Button Clicked!");
