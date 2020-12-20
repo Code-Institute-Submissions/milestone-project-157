@@ -14,3 +14,37 @@ const duckQuestionResponses = [
   "That's a tough one for me to answer, maybe try to rephrase it for me?",
   "It's like my father used to say, 'Quack quack quack qua-' oh wait, you don't speak duck do you? Well tough, I'm not repeating myself...",
 ];
+
+async function questionButton(messagePanel) {
+  console.log("Question Button Clicked!");
+  // make call to 8-ball API
+  try {
+    const { magic } = await eightBallAPI();
+    console.log(magic.answer);
+    message(magic.answer, "duck", messagePanel);
+  } catch (err) {
+    message("Messed up...", "duck", messagePanel);
+  }
+}
+
+async function inspirationButton(messagePanel) {
+  console.log("Inspiration Button Clicked!");
+  try {
+    // make API call to inspirational Quotes
+    const { contents } = await getQuote();
+    const quote = contents.quotes[0].quote;
+    message(quote, "duck", messagePanel);
+  } catch (err) {
+    message(
+      "I'm all out of quotes for now, you'll have to wait until I can think of more...",
+      "duck",
+      messagePanel
+    );
+  }
+}
+
+function successButton() {
+  console.log("Success Button Clicked!");
+  // create modal window
+  $();
+}

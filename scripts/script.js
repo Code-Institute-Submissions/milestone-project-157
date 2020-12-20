@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  //  Splash screen
+  //  SPLASH SCREEN
   let percentage = 0;
   let timer = setInterval(() => {
     percentage++;
@@ -8,14 +8,20 @@ $(document).ready(function () {
       $(".start-button").attr("disabled", false).removeClass("disabled-btn");
       clearInterval(timer);
     }
-  }, 25);
+  }, 1);
 
+  // PRESS START
   $(".start-button").on("click", () => {
+    // CLEAR THE PAGE
     removeElemByClass(["heading", "loading-container", "start-button"]);
+    // RUN FUNCTION TO CREATE HOMEPAGE ELEMENTS
     let { home, leftPanel, rightPanel } = createHomepage();
+    // BUILD LEFT PANEL
     let { userInput, messagePanel, sendButton } = buildLeftPanel(leftPanel);
-    buildRightPanel(messagePanel, rightPanel);
+    // BUILD RIGHT PANEL
+    buildRightPanel(home, messagePanel, rightPanel);
 
+    // USER SENDS A MESSAGE
     $(sendButton).click(() => {
       console.log("Send message button was clicked!");
       let userMsg = $(userInput).val();

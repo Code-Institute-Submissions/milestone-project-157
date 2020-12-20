@@ -1,3 +1,4 @@
+// CREATE THE HOMEPAGE
 const createHomepage = () => {
   let home = document.createElement("section");
   $(home).attr("id", "home");
@@ -11,24 +12,32 @@ const createHomepage = () => {
   return { home, leftPanel, rightPanel };
 };
 
+// CREATE THE LEFT PANEL
 function buildLeftPanel(leftPanel) {
   let headerPanel = document.createElement("section");
   $(headerPanel).attr("class", "left-header-panel");
   let title = document.createElement("h2");
   $(title).text("Rubber Duck");
-  $(headerPanel).append(title);
+  // create 3 action buttons
+  let { qBtn, iBtn, sBtn } = buildOptions();
+  $(headerPanel).append(title, qBtn, iBtn, sBtn);
+  $(qBtn).click(() => questionButton(messagePanel));
+  $(iBtn).click(() => inspirationButton(messagePanel));
+  $(sBtn).click(() => successButton());
   let messagePanel = document.createElement("section");
   $(messagePanel).attr("class", "left-message-panel");
   let footerPanel = document.createElement("section");
   $(footerPanel).attr("class", "left-footer-panel");
   $(leftPanel).append(headerPanel, messagePanel, footerPanel);
   // create the input element
-  let userInput = input("Type here", "text", "user-input");
+  let userInput = textArea("Type here", "user-input");
   // create send button
   let sendButton = document.createElement("button");
   $(sendButton).attr("class", "send-msg-btn");
   // append to footer panel
   $(footerPanel).append(userInput, sendButton);
+
+  $(userInput).keydown(autosize);
   // create initial duck messages
   message(
     "Yes, I am a duck 🦆 Yes, I am listening 👂 What’s up?",
@@ -45,7 +54,8 @@ function buildLeftPanel(leftPanel) {
   return { userInput, messagePanel, sendButton };
 }
 
-function buildRightPanel(messagePanel, rightPanel) {
+// CREATE THE RIGHT PANEL
+function buildRightPanel(home, messagePanel, rightPanel) {
   // create darkmode toggle
   let modeToggle = document.createElement("input");
   $(modeToggle).attr("type", "checkbox");
@@ -74,39 +84,12 @@ function buildRightPanel(messagePanel, rightPanel) {
     }
   });
 
-  $(qBtn).click(async () => {
-    console.log("Question Button Clicked!");
-    // make call to 8-ball API
-    try {
-      const { magic } = await eightBallAPI();
-      console.log(magic.answer);
-      message(magic.answer, "duck", messagePanel);
-    } catch (err) {
-      message("Messed up...", "duck", messagePanel);
-    }
-  });
-
-  $(iBtn).click(async () => {
-    console.log("Inspiration Button Clicked!");
-    try {
-      // make API call to inspirational Quotes
-      const { contents } = await getQuote();
-      const quote = contents.quotes[0].quote;
-      message(quote, "duck", messagePanel);
-    } catch (err) {
-      message(
-        "I'm all out of quotes for now, you'll have to wait until I can think of more...",
-        "duck",
-        messagePanel
-      );
-    }
-  });
-  $(sBtn).click(() => {
-    console.log("Success Button Clicked!");
-    // trigger success modal
-  });
+  $(qBtn).click(() => questionButton(messagePanel));
+  $(iBtn).click(() => inspirationButton(messagePanel));
+  $(sBtn).click(() => buildSuccessModal(home));
 }
 
+// CREATE OPTION BUTTONS
 function buildOptions() {
   // create three buttons
   let qBtn = document.createElement("button");
@@ -121,6 +104,7 @@ function buildOptions() {
   return { qBtn, iBtn, sBtn };
 }
 
+// CREATE A MESSAGE BOX
 function message(text, type, container) {
   const msg = document.createElement("div");
   $(msg).attr("class", `${type}-message`);
@@ -129,11 +113,35 @@ function message(text, type, container) {
   return msg;
 }
 
-function input(placeholder, type, id) {
-  const ip = document.createElement("input");
+// CREATE THE INPUT
+function textArea(placeholder, id) {
+  const ip = document.createElement("textarea");
   $(ip).attr("class", "input");
-  $(ip).attr("type", type);
   $(ip).attr("id", id);
   $(ip).attr("placeholder", placeholder);
+  $(ip).attr("cols", "50");
+  $(ip).attr("rows", "1");
   return ip;
+}
+
+function buildSuccessModal(home) {
+  const bg = document.createElement("div");
+  $(bg).attr("class", "success-modal-container");
+  const sModal = document.createElement("section");
+  $(sModal).attr("class", "success-modal");
+  $(bg).append(sModal);
+  $(home).append(bg);
+}
+
+function autosize() {
+  var el = this;
+  if (el.scrollHeight > 120) {
+    el.style.cssText = "overflow: scroll !important; height: 120px";
+    el.removeEventListener("keydown", autosize);
+  } else {
+    setTimeout(function () {
+      el.style.cssText = "height:auto; padding:0";
+      el.style.cssText = "height:" + el.scrollHeight + "px";
+    }, 0);
+  }
 }
