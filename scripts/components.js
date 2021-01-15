@@ -18,11 +18,20 @@ function buildLeftPanel(leftPanel) {
   $(headerPanel).attr('class', 'left-header-panel');
   let title = document.createElement('h2');
   $(title).text('Rubber Duck');
+  // create darkmode toggle
+  const modeLabel2 = document.createElement('label');
+  $(modeLabel2).attr('class', 'switch small-toggle');
+  const modeSpan2 = document.createElement('span');
+  $(modeSpan2).attr('class', 'slider round');
+  let modeToggle2 = document.createElement('input');
+  $(modeToggle2).attr('type', 'checkbox');
+  $(modeToggle2).attr('id', 'mode');
+  $(modeLabel2).append(modeToggle2, modeSpan2);
   // create 3 action buttons
   let miniBtnContainer = document.createElement('div');
   $(miniBtnContainer).attr('class', 'mini-btn-container');
   let { qMiniBtn, iMiniBtn, sMiniBtn } = buildMiniOptions();
-  $(miniBtnContainer).append(qMiniBtn, iMiniBtn, sMiniBtn);
+  $(miniBtnContainer).append(modeLabel2, qMiniBtn, iMiniBtn, sMiniBtn);
   $(headerPanel).append(title, miniBtnContainer);
   $(qMiniBtn).click(() => questionButton(messagePanel));
   $(iMiniBtn).click(() => inspirationButton(messagePanel));
@@ -43,6 +52,15 @@ function buildLeftPanel(leftPanel) {
   $(sendButton).append(sendButtonIcon);
   // append to footer panel
   $(footerPanel).append(userInput, sendButton);
+
+  $(modeToggle2).change(function () {
+    if (this.checked) {
+      console.log('Checked');
+      $(messagePanel).addClass('darkmode');
+    } else {
+      $(messagePanel).removeClass('darkmode');
+    }
+  });
 
   $(userInput).keydown(autosize);
   // create initial duck messages
