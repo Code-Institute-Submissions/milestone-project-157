@@ -62,6 +62,10 @@ function buildLeftPanel(leftPanel) {
     }
   });
 
+  $(qMiniBtn).click(() => questionButton(messagePanel));
+  $(iMiniBtn).click(() => inspirationButton(messagePanel));
+  $(sMiniBtn).click(() => buildSuccessModal(home));
+
   $(userInput).keydown(autosize);
   // create initial duck messages
   message(
@@ -168,13 +172,21 @@ function textArea(placeholder, id) {
   return ip;
 }
 
+// CREATE THE SUCCESS MODAL
 function buildSuccessModal(home) {
   const bg = document.createElement('div');
   $(bg).attr('class', 'success-modal-container');
   const sModal = document.createElement('section');
   $(sModal).attr('class', 'success-modal');
+  const test =
+    '<h2>Congrats!</h2><h4>You solved your own problem! Would you like a copy of your own messages?</h4><div class="modal-button-container"><button id="modal-download-btn">Download</button><button id="modal-done-btn">Done</button></div>';
+  $(sModal).append(test);
   $(bg).append(sModal);
   $(home).append(bg);
+
+  $('#modal-done-btn').on('click', () => {
+    $(bg).remove();
+  });
 }
 
 function autosize() {
