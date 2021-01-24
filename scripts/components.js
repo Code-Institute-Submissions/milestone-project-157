@@ -179,6 +179,13 @@ function buildSuccessModal(home) {
   const sModal = document.createElement("section");
   $(sModal).attr("class", "success-modal");
 
+  let closeButton = document.createElement("button");
+  $(closeButton).attr("class", "close-modal-btn");
+  let closeButtonIcon = document.createElement("img");
+  $(closeButtonIcon).attr("class", "close-modal-btn-icon");
+  $(closeButtonIcon).attr("src", "assets/images/close.png");
+  $(closeButton).append(closeButtonIcon);
+
   const chat = downloadMessageHistory();
 
   const test = `<h2>Congrats!</h2>
@@ -187,20 +194,22 @@ function buildSuccessModal(home) {
                   <a id="modal-download-btn" download="rubber-duck-${new Date().toISOString()}.json" href=${chat}>Download</a>
                   <button id="modal-done-btn">Done</button>
                 </div>`;
-  $(sModal).append(test);
+  $(sModal).append(closeButton, test);
   $(bg).append(sModal);
   $(home).append(bg);
 
   $("#modal-download-btn").on("click", () => {
     $(bg).remove();
-    // clear all div class user-message
-    // clear all but first 2 div class duck-message
     clearMessages();
   });
 
   $("#modal-done-btn").on("click", () => {
     $(bg).remove();
     clearMessages();
+  });
+
+  $(closeButton).on("click", () => {
+    $(bg).remove();
   });
 }
 
