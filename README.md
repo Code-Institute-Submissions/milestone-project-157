@@ -13,3 +13,9 @@ TODO: 1. Splash screen 2. Interactive button to start chat 3. Messenger style sp
 _/
 
 https://stackoverflow.com/questions/48212286/make-textarea-with-setted-height-grow-when-new-line-is-added
+
+https://stackoverflow.com/questions/8847766/how-to-convert-json-to-csv-format-and-store-in-a-variable X
+
+https://www.valentinog.com/blog/link-download/
+
+down the line: extra input types (code snippets, images, etc...)
