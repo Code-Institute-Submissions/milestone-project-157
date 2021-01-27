@@ -8,6 +8,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
 
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch
 
+https://en.wikipedia.org/wiki/Rubber_duck_debugging
+
 /_
 TODO: 1. Splash screen 2. Interactive button to start chat 3. Messenger style split screen 4. Local Storage to store messages 5. Options 6. API responses from 8ball (check for question marks)
 _/
