@@ -32,7 +32,7 @@ FUNCTIONALITY LEFT
 
 1. Fix anchor style in modal DONE
 2. Close button on modal DONE
-3. second modal for tooltips on all buttons (red, yellow, green, darkmode)
+3. second modal for tooltips on all buttons (red, yellow, green, darkmode) DONE
 4. Toast message when successfully downloaded
 5. Fix CSS
 6. Fix folder structure
