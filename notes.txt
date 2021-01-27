@@ -1,0 +1,39 @@
+MS2 2nd Meeting
+
+Inside button text red yellow green
+
+- Specify how the question mark functions DONE
+
+- Readme make a video representation of how to use the site
+
+- info button under 3 options, modal with further instructions
+
+- Comments on Javascript
+
+- folder structure
+
+-   - assets -> (styles/scripts/images) - (.css/.js/.jpgpng)
+
+- group css by media queries
+
+- jest tests ?
+
+- - - - - - - - - - -
+
+FUNCTIONALITY LEFT
+
+- download localstorage and create csv file  DONE
+- Toast ? info tooltip?
+- scroll down to new message?
+- text input resize when empty ?
+- clear when finished DONE
+
+// TODO:
+
+1. Fix anchor style in modal DONE
+2. Close button on modal DONE
+3. second modal for tooltips on all buttons (red, yellow, green, darkmode)
+4. Toast message when successfully downloaded
+5. Fix CSS
+6. Fix folder structure
+7. Start writing readme file
