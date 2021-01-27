@@ -186,8 +186,8 @@ function textArea(placeholder, id) {
 }
 
 function buildInfoModal(home) {
-	const bg = document.createElement('div');
-	$(bg).attr('class', 'info-modal-container');
+	// const bg = document.createElement('div');
+	// $(bg).attr('class', 'info-container');
 	const sModal = document.createElement('section');
 	$(sModal).attr('class', 'info-modal');
 
@@ -201,23 +201,23 @@ function buildInfoModal(home) {
 	const info = `<h2>How it works</h2>
                 <h3><i>Insights are often found by simply describing the problem aloud.</i><br/>— Duck, Quack Overflow</h3>
                 <div class='info-grid'>
-                <button class="duck-btn" id="question-mini-btn"></button>
+                <button class="duck-btn info" id="question-mini-btn"></button>
                 <h4>Quesion button - By default, when you end a message with a question mark, Rubber Duck will respond to your question. Click here if you want Rubber Duck to respond at any time.</h4>
-                <button class="duck-btn" id="inspiration-mini-btn"></button>
+                <button class="duck-btn info" id="inspiration-mini-btn"></button>
                 <h4>Inspiration button - If you're not getting anywhere with your problem, clicking the yellow button will have Rubber Duck sending you an inspirational quote to help you out.</h4>
-                <button class="duck-btn" id="success-mini-btn"></button>
+                <button class="duck-btn info" id="success-mini-btn"></button>
                 <h4>Success button - So you've solved your problem, great! Click the green button to finish your Rubber Duck session. Clicking Done will clear the chat log, alternatively you have the option of downloading a JSON formatted copy of your chat.</h4>
-                <img src='assets/images/darkmode.png' alt='dark-mode'>
+                <img class='info' src='assets/images/darkmode.png' alt='dark-mode'>
                 <h4>Dark mode - As with any good site, a dark mode toggle is provided to make everything a bit easier on the eyes!</h4>
                 </div>
                 `;
 	$(sModal).append(closeButton, info);
 
-	$(bg).append(sModal);
-	$(home).append(bg);
+	// $(bg).append(sModal);
+	$(home).append(sModal);
 
 	$(closeButton).on('click', () => {
-		$(bg).remove();
+		$(sModal).remove();
 	});
 }
 
