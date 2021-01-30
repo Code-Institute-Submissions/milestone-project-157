@@ -22,17 +22,6 @@ Inside button text red yellow green
 
 FUNCTIONALITY LEFT
 
-- download localstorage and create csv file  DONE
-- Toast ? info tooltip?
-- scroll down to new message?
-- text input resize when empty ?
-- clear when finished DONE
-
-// TODO:
-
-1. Fix anchor style in modal DONE
-2. Close button on modal DONE
-3. second modal for tooltips on all buttons (red, yellow, green, darkmode) DONE
-4. Fix CSS
-5. Fix folder structure DONE
-6. Start writing readme file
+- css mediaQ (10 min)
+- comment code (params) (30 min)
+- readme (2 hours)
