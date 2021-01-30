@@ -22,6 +22,6 @@ Inside button text red yellow green
 
 FUNCTIONALITY LEFT
 
-- css mediaQ (10 min)
-- comment code (params) (30 min)
-- readme (2 hours)
+- css mediaQ (10 min) DONE
+- comment code [params] (30 min) TODO:
+- readme [video] (2 hours) TODO:
