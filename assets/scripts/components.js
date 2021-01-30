@@ -88,7 +88,7 @@ function buildLeftPanel(leftPanel, home) {
   );
   setTimeout(() => {
     message(
-      "If you want to ask me anything, be sure to end your message with a <b><em>'?'</em></b>. If you would like to get some direct feedback at any point, click the <span class='red'>red</span> button.\n\n If instead you would like something more inspirational, click the <span class='yellow'>yellow</span> button.\n\n When you arrive at a solution to your problem, congratulations! Choose the <span class='green'>green</span> button to compconste your Rubber Duck session!",
+      "If you want to ask me anything, be sure to end your message with a <b><em>'?'</em></b>. If you would like to get some direct feedback at any point, click the <span class='red'>red</span> button.\n\n If instead you would like something more inspirational, click the <span class='yellow'>yellow</span> button.\n\n When you arrive at a solution to your problem, congratulations! Choose the <span class='green'>green</span> button to complete your Rubber Duck session!",
       'duck',
       messagePanel,
       true
