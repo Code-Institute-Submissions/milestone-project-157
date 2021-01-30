@@ -189,7 +189,6 @@ body {
 	font-size: 16px;
 	color: white;
 	padding: 2px 4px;
-	overflow-x: none;
 }
 
 #user-input::-webkit-scrollbar {
