@@ -6,7 +6,7 @@ Rubber Duck is a tool that enables you to figure out your problems yourself. Bas
 
 <!-- VIDEO TO GO HERE -->
 
-![Demonstration]()
+![Demonstration](https://github.com/IainMcHugh/ms2/blob/master/assets/images/readme-video.gif?raw=true)
 
 ## User Experience (UX)
 
