@@ -3,11 +3,11 @@
  * @function
  */
 const createHomepage = () => {
-  let home = document.createElement('section');
+  const home = document.createElement('section');
   $(home).attr('id', 'home');
-  let leftPanel = document.createElement('section');
+  const leftPanel = document.createElement('section');
   $(leftPanel).attr('class', 'left-panel');
-  let rightPanel = document.createElement('section');
+  const rightPanel = document.createElement('section');
   $(rightPanel).attr('class', 'right-panel');
   $(home).append(leftPanel);
   $(home).append(rightPanel);
@@ -23,38 +23,38 @@ const createHomepage = () => {
  */
 function buildLeftPanel(leftPanel, home) {
   //   Create the header
-  let headerPanel = document.createElement('section');
+  const headerPanel = document.createElement('section');
   $(headerPanel).attr('class', 'left-header-panel');
-  let title = document.createElement('h2');
+  const title = document.createElement('h2');
   $(title).text('Rubber Duck');
   // Create mini darkmode toggle
-  let modeLabelMini = document.createElement('label');
+  const modeLabelMini = document.createElement('label');
   $(modeLabelMini).attr('class', 'switch small-toggle');
-  let modeSpanMini = document.createElement('span');
+  const modeSpanMini = document.createElement('span');
   $(modeSpanMini).attr('class', 'slider round');
-  let modeToggleMini = document.createElement('input');
+  const modeToggleMini = document.createElement('input');
   $(modeToggleMini).attr('type', 'checkbox');
   $(modeToggleMini).attr('id', 'mode');
   $(modeLabelMini).append(modeToggleMini, modeSpanMini);
   // Create 3 mini action buttons
-  let miniBtnContainer = document.createElement('div');
+  const miniBtnContainer = document.createElement('div');
   $(miniBtnContainer).attr('class', 'mini-btn-container');
-  let { qMiniBtn, iMiniBtn, sMiniBtn } = buildMiniOptions();
+  const { qMiniBtn, iMiniBtn, sMiniBtn } = buildMiniOptions();
   $(miniBtnContainer).append(modeLabelMini, qMiniBtn, iMiniBtn, sMiniBtn);
   $(headerPanel).append(title, miniBtnContainer);
   // Create the message panel section
-  let messagePanel = document.createElement('section');
+  const messagePanel = document.createElement('section');
   $(messagePanel).attr('class', 'left-message-panel');
   //  Create the footer panel to hold input element
-  let footerPanel = document.createElement('section');
+  const footerPanel = document.createElement('section');
   $(footerPanel).attr('class', 'left-footer-panel');
   $(leftPanel).append(headerPanel, messagePanel, footerPanel);
   // Create the input element
-  let userInput = textArea('Type here', 'user-input');
+  const userInput = textArea('Type here', 'user-input');
   // Create send button
-  let sendButton = document.createElement('button');
+  const sendButton = document.createElement('button');
   $(sendButton).attr('class', 'send-msg-btn');
-  let sendButtonIcon = document.createElement('img');
+  const sendButtonIcon = document.createElement('img');
   $(sendButtonIcon).attr('class', 'send-msg-btn-icon');
   $(sendButtonIcon).attr('src', 'assets/images/send.png');
   $(sendButton).append(sendButtonIcon);
@@ -88,7 +88,7 @@ function buildLeftPanel(leftPanel, home) {
   );
   setTimeout(() => {
     message(
-      "If you want to ask me anything, be sure to end your message with a <b><em>'?'</em></b>. If you would like to get some direct feedback at any point, click the <span class='red'>red</span> button.\n\n If instead you would like something more inspirational, click the <span class='yellow'>yellow</span> button.\n\n When you arrive at a solution to your problem, congratulations! Choose the <span class='green'>green</span> button to complete your Rubber Duck session!",
+      "If you want to ask me anything, be sure to end your message with a <b><em>'?'</em></b>. If you would like to get some direct feedback at any point, click the <span class='red'>red</span> button.\n\n If instead you would like something more inspirational, click the <span class='yellow'>yellow</span> button.\n\n When you arrive at a solution to your problem, congratulations! Choose the <span class='green'>green</span> button to compconste your Rubber Duck session!",
       'duck',
       messagePanel,
       true
@@ -110,20 +110,20 @@ function buildRightPanel(home, messagePanel, rightPanel) {
   $(modeLabel).attr('class', 'switch');
   const modeSpan = document.createElement('span');
   $(modeSpan).attr('class', 'slider round');
-  let modeToggle = document.createElement('input');
+  const modeToggle = document.createElement('input');
   $(modeToggle).attr('type', 'checkbox');
   $(modeToggle).attr('id', 'mode');
   $(modeLabel).append(modeToggle, modeSpan);
   // create duck image element
-  let duckImg = document.createElement('img');
+  const duckImg = document.createElement('img');
   $(duckImg).attr('id', 'duck-image');
   $(duckImg).attr('src', 'assets/images/rubber_duck.png');
   $(duckImg).attr('alt', 'Rubber Duck');
   // create button container
-  let btnContainer = document.createElement('section');
+  const btnContainer = document.createElement('section');
   $(btnContainer).attr('class', 'btn-container');
   $(rightPanel).append(modeLabel, duckImg, btnContainer);
-  let { qBtn, iBtn, sBtn } = buildOptions();
+  const { qBtn, iBtn, sBtn } = buildOptions();
   $(btnContainer).append(qBtn, iBtn, sBtn);
 
   // toggle dark mode from right panel
@@ -153,7 +153,7 @@ function buildRightPanel(home, messagePanel, rightPanel) {
 function buildInfoButton(home) {
   const infoButton = document.createElement('button');
   $(infoButton).attr('class', 'info-btn');
-  let infoButtonIcon = document.createElement('img');
+  const infoButtonIcon = document.createElement('img');
   $(infoButtonIcon).attr('class', 'info-btn-icon');
   $(infoButtonIcon).attr('src', 'assets/images/question-mark.png');
   $(infoButton).append(infoButtonIcon);
@@ -166,13 +166,13 @@ function buildInfoButton(home) {
  * @function
  */
 function buildOptions() {
-  let qBtn = document.createElement('button');
+  const qBtn = document.createElement('button');
   $(qBtn).attr('class', 'duck-btn');
   $(qBtn).attr('id', 'question-btn');
-  let iBtn = document.createElement('button');
+  const iBtn = document.createElement('button');
   $(iBtn).attr('class', 'duck-btn');
   $(iBtn).attr('id', 'inspiration-btn');
-  let sBtn = document.createElement('button');
+  const sBtn = document.createElement('button');
   $(sBtn).attr('class', 'duck-btn');
   $(sBtn).attr('id', 'success-btn');
   return { qBtn, iBtn, sBtn };
@@ -183,13 +183,13 @@ function buildOptions() {
  * @function
  */
 function buildMiniOptions() {
-  let qMiniBtn = document.createElement('button');
+  const qMiniBtn = document.createElement('button');
   $(qMiniBtn).attr('class', 'duck-mini-btn');
   $(qMiniBtn).attr('id', 'question-mini-btn');
-  let iMiniBtn = document.createElement('button');
+  const iMiniBtn = document.createElement('button');
   $(iMiniBtn).attr('class', 'duck-mini-btn');
   $(iMiniBtn).attr('id', 'inspiration-mini-btn');
-  let sMiniBtn = document.createElement('button');
+  const sMiniBtn = document.createElement('button');
   $(sMiniBtn).attr('class', 'duck-mini-btn');
   $(sMiniBtn).attr('id', 'success-mini-btn');
   return { qMiniBtn, iMiniBtn, sMiniBtn };
@@ -236,9 +236,9 @@ function textArea(placeholder, id) {
 function buildInfoModal(home) {
   const sModal = document.createElement('section');
   $(sModal).attr('class', 'info-modal');
-  let closeButton = document.createElement('button');
+  const closeButton = document.createElement('button');
   $(closeButton).attr('class', 'close-modal-btn');
-  let closeButtonIcon = document.createElement('img');
+  const closeButtonIcon = document.createElement('img');
   $(closeButtonIcon).attr('class', 'close-modal-btn-icon');
   $(closeButtonIcon).attr('src', 'assets/images/close.png');
   $(closeButton).append(closeButtonIcon);
@@ -273,9 +273,9 @@ function buildSuccessModal(home) {
   $(bg).attr('class', 'success-modal-container');
   const sModal = document.createElement('section');
   $(sModal).attr('class', 'success-modal');
-  let closeButton = document.createElement('button');
+  const closeButton = document.createElement('button');
   $(closeButton).attr('class', 'close-modal-btn');
-  let closeButtonIcon = document.createElement('img');
+  const closeButtonIcon = document.createElement('img');
   $(closeButtonIcon).attr('class', 'close-modal-btn-icon');
   $(closeButtonIcon).attr('src', 'assets/images/close.png');
   $(closeButton).append(closeButtonIcon);
