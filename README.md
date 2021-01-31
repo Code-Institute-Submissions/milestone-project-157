@@ -86,23 +86,25 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
   1. As a site Visitor, I want a clear understanding of the purpose of this particular website.
 
-     1.
+     1. When the user clicks the start button, they are presented with a messaging interface which is straight forward to interact with.
 
   2. As a site Visitor, I want a smooth experience when using the website.
 
-     1.
+     1. As the main screen is rendered entirely with javascript, after the initial loading bar has completed the client-side nature of the site means all interactions will be almost instantenous.
+     2. Attention has been given to using consistent padding and margins throughout the site, while aiming to acheive symmetry where possible
 
   3. As a site Visitor, I want to be able to get the same experience no matter what device I am using.
 
-     1.
+     1. On mo
 
   4. As a site Visitor, I want clarity on the functionality available within the site.
 
-     1.
+     1. When the main page first loads, the user is provided with two staggered messages from the duck. These give a quick rundown on the main functionality available to the user.
+     2. An information modal has also been created, to further explain in detail to the user the various options available to them and how they work, as well as a general overview of the sites purpose.
 
   5. As a site Visitor, I want the website pathway to be obvious to me so I know how to fully utilise the site.
 
-     1.
+     1. Success modal
 
 ### Further Testing
 
@@ -110,6 +112,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 - The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
 - A large amount of testing was done to ensure that all pages were linking correctly.
 - Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+
+### Jasmine Unit Testing
+
+- Jasmine unit tests were written to test two functions involved in storing the message logs in local storage. In order to test this functionality, the main local storage method calls were spyed on and there functionality mocked. Before each test local storage is essentially reset to remove test contamination. The first test describes calling the update chat history, where a mock message is passed to the function and the set item call is spyed on. (Note: This test is flaky as part of the object being tested involves a live timestamp, in order to fix this I would look for a way to mock the timestamp). The second test describes the download chat history method, where a href ready string should be returned to the download anchor tag on the success modal. For this test the local storage is mocked with two message logs, and the format of the returned string is tested.
 
 ### Known Bugs
 
