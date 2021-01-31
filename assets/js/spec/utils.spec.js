@@ -24,11 +24,11 @@ describe('Utils', () => {
     });
 
     it('should update local storage with duck message', () => {
-      updateChatHistory('Test message from Rubber Duck', true);
+      updateChatHistory('Test message from Rubber Duck', false);
       expect(localStorage.setItem).toHaveBeenCalled();
       expect(localStorage.setItem).toHaveBeenCalledWith(
         'chat',
-        `[{"name":"user","text":"Test message from Rubber Duck","createdAt":"${new Date().toISOString()}"}]`
+        `[{"name":"duck","text":"Test message from Rubber Duck","createdAt":"${new Date().toISOString()}"}]`
       );
     });
   });
