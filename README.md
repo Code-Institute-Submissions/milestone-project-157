@@ -1,8 +1,10 @@
-<h1 align="center">Milestone Project 2 - Rubber Duck</h1>
+<h1 align="center">Milestone Project 2 - Rubber Ducking</h1>
 
 [View the live project here.](https://iainmchugh.github.io/milestone-project-2/)
 
-Rubber Duck is a tool that enables you to figure out your problems yourself. Based on the widely used concept of 'rubber-ducking' where an individual talks through a problem with an inanimate object until they stumble upon the solution themselves. This website encapsulates that idea via a message chat with a rubber duck character, that will give responses to help the user on their way to realisation. The site itself aims to be slick and modern on the eye, while providing seemless but impressive functionality.
+![Rubber Ducking](https://github.com/IainMcHugh/ms2/blob/master/assets/images/mockup.png?raw=true)
+
+Rubber Ducking is a tool that enables you to figure out your problems yourself. Based on the widely used concept of 'rubber-ducking' where an individual talks through a problem with an inanimate object until they stumble upon the solution themselves. This website encapsulates that idea via a message chat with a rubber duck character, that will give responses to help the user on their way to realisation. The site itself aims to be slick and modern on the eye, while providing seemless but impressive functionality.
 
 ![Video Demo](https://github.com/IainMcHugh/ms2/blob/master/assets/images/readme-video.gif?raw=true)
 
