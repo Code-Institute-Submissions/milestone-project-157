@@ -4,9 +4,7 @@
 
 Rubber Duck is a tool that enables you to figure out your problems yourself. Based on the widely used concept of 'rubber-ducking' where an individual talks through a problem with an inanimate object until they stumble upon the solution themselves. This website encapsulates that idea via a message chat with a rubber duck character, that will give responses to help the user on their way to realisation. The site itself aims to be slick and modern on the eye, while providing seemless but impressive functionality.
 
-<!-- VIDEO TO GO HERE -->
-
-![Demonstration](https://github.com/IainMcHugh/ms2/blob/master/assets/images/readme-video.gif?raw=true)
+![Video Demo](https://github.com/IainMcHugh/ms2/blob/master/assets/images/readme-video.gif?raw=true)
 
 ## User Experience (UX)
 
@@ -231,5 +229,11 @@ https://stackoverflow.com/questions/48212286/make-textarea-with-setted-height-gr
 https://stackoverflow.com/questions/8847766/how-to-convert-json-to-csv-format-and-store-in-a-variable X
 
 https://www.valentinog.com/blog/link-download/
+
+https://stackoverflow.com/questions/11485420/how-to-mock-localstorage-in-javascript-unit-tests
+
+https://cdnjs.com/libraries/jasmine
+
+https://github.com/jasmine/jasmine#installation
 
 down the line: extra input types (code snippets, images, etc...)

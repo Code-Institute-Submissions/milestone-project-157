@@ -74,14 +74,25 @@ async function inspirationButton(messagePanel) {
  * @param {boolean} userType - Boolean representing the message sender
  */
 function updateChatHistory(msg, userType) {
-  let chatHistory = JSON.parse(localStorage.getItem('chat'));
-  const chatMessage = {
-    name: userType ? 'user' : 'duck',
-    text: msg,
-    createdAt: new Date(),
-  };
-  chatHistory.push(chatMessage);
-  localStorage.setItem('chat', JSON.stringify(chatHistory));
+  try {
+    let chatHistory = JSON.parse(localStorage.getItem('chat'));
+    const chatMessage = {
+      name: userType ? 'user' : 'duck',
+      text: msg,
+      createdAt: new Date(),
+    };
+    chatHistory.push(chatMessage);
+    localStorage.setItem('chat', JSON.stringify(chatHistory));
+  } catch (_error) {
+    const initialMessage = [
+      {
+        name: userType ? 'user' : 'duck',
+        text: msg,
+        createdAt: new Date(),
+      },
+    ];
+    localStorage.setItem('chat', JSON.stringify(initialMessage));
+  }
 }
 
 /**
