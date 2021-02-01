@@ -22,7 +22,7 @@ Rubber Ducking is a tool that enables you to figure out your problems yourself. 
 
 - ### Design
   - #### Colour Scheme
-    - I opted for a minimalist design flow within this site. The reason behind this was to be able to clearly emphasise the various functionality available to the user. The two prominant colours within the background are ![#e1f1ff](https://via.placeholder.com/15/E1F1FF/000000?text=+) `#E1F1FF` and simple ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) `White`, allowing the 'traffic light' colours of the main function buttons to pop. I also included a dark mode toggle, which darkens the large background panels for an easier viewing experience.
+    - I opted for a minimalist design flow within this site. The reason behind this was to be able to clearly emphasise the various functionality available to the user. The two prominant colours within the background are ![#e1f1ff](https://via.placeholder.com/15/E1F1FF/000000?text=+) `#E1F1FF` and simple ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) `White`, allowing the 'traffic light' colours of the main function buttons to pop. I also included a dark mode toggle [(design reference here)](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch), which darkens the large background panels for an easier viewing experience.
   - #### Typography
     - The Scada font is the font used throughout the whole website with Sans Serif as the fallback font in case for any reason the font isn't being imported into the site correctly. I found Scada to have great visual clarity even at small font sizes, which is a necessity within a mobile messaging application. It also has a modern high definition feel to it, which is in keeping with the rest of the site's design.
       <a href="https://fonts.google.com/specimen/Scada">Scada</a> - Google Fonts
@@ -48,6 +48,8 @@ Rubber Ducking is a tool that enables you to figure out your problems yourself. 
 - Information modal for overview of available functionality
 
 - Downloadble chat history in JSON format through the use of local storage
+
+- Custom 404 error page handling
 
 ## Technologies Used
 
@@ -97,16 +99,16 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
   3. As a site Visitor, I want to be able to get the same experience no matter what device I am using.
 
-     1. On mo
+     1. The website has a fully responsive design, on mobile the message panel takes up the entire screen so it has the feel of a normal messaging app, with miniature versions of the functional buttons within the header. On larger screens the site is split into two columns, where the left is predominantly for typing and the right for clicking.
 
   4. As a site Visitor, I want clarity on the functionality available within the site.
 
-     1. When the main page first loads, the user is provided with two staggered messages from the duck. These give a quick rundown on the main functionality available to the user.
+     1. When the main page first loads, the user is provided with two staggered information messages from the duck. These give a quick rundown on the main functionality available to the user.
      2. An information modal has also been created, to further explain in detail to the user the various options available to them and how they work, as well as a general overview of the sites purpose.
 
   5. As a site Visitor, I want the website pathway to be obvious to me so I know how to fully utilise the site.
 
-     1. Success modal
+     1. When the user has finished their session, they can click the green button to open the success modal. From here they have the option of either completing their session, or to download the chat logs. In both cases this will reset the message panel.
 
 ### Further Testing
 
@@ -136,6 +138,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 - Set up a backend to store a users previous sessions, so they could have a listing of all previous discussions from within the site instead of having to download and storing locally.
 
 - Add unit tests as well as end-to-end testing with jest testing library to further my confidence in the overall site reliability.
+
+- I would like to add a toast that fires when the user has completed their session, as well as when they have completed downloading the message logs.
 
 ## Deployment
 
@@ -185,63 +189,49 @@ $ git clone git@github.com:IainMcHugh/milestone-project-2.git
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
+### Running tests
+
+In order to run Jasmine tests, simply open the `SpecRunner.html` file in Google Chrome, and the tests will run automatically.
+
 ## Credits
 
 ### Code
 
-- [Bootstrap Documentation](https://getbootstrap.com/docs/4.0/getting-started/introduction/): Bootstrap Library used throughout the project, for overall section layouts as well as implementing a hamburger navigation bar and carousel shopping section for smaller screens
+- [CSS scollbar](https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar): This helped me a lot when trying to customise the scrollbar within the text area on the message panel, which was a vital requirement within the design.
 
-- [CSS-Tricks](https://css-tricks.com/almanac/properties/b/box-shadow/): CSS-Tricks website for providing great code snippets as well as accompanying imagery for how the code will look. In particular this great page on box-shadow provides css samples for really authentic shadowing.
+- [Article by Valentino Gagliardi](https://www.valentinog.com/blog/link-download/): This extremely helpful method allowed me to embed the entire JSON chat logs within an anchor tag's href attribute, making it downloadable by the user.
 
 ### Content
 
 - All content was written by Iain McHugh.
 
+- [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging) While researching the idea I came across this article where I learnt a similar feature used to exist on stackoverflow! This gave me further inspiration to push ahead with the idea.
+
 - [Multi-mockup](https://techsini.com/multi-mockup/): A great resource for generating mockup displays for the site on various different screens and devices. Used for the cover photo of this readme file.
 
-- [Electric Blue](<https://en.wikipedia.org/wiki/Electric_blue_(color)>): A colour value that I used as an initial starting place for the overall colour theme of the site.
+- [Mocking localStorage](https://stackoverflow.com/questions/11485420/how-to-mock-localstorage-in-javascript-unit-tests): This stackoverflow post helped me to mock local storage within my testing spec file.
 
 ### Media
 
 - All images were created/edited by the developer or sourced from image websites where Creative Commons license is active.
 
-- [Site for cartoon images](https://pixabay.com/illustrations/)
-- [Site for Portrait photos](https://www.pexels.com/)
+- [Site for icons](https://www.flaticon.com/)
+- [The Rubber Duck image source](https://www.pngegg.com/en/png-zmwpv)
+
+### API
+
+- [Quotes](https://quotes.rest/): This is the open API I used to generate random quotes.
+
+- [8ballAPI](https://8ball.delegator.com/): This is the open API I used to generate eight ball like responses to a users question.
+
+### Testing
+
+- [Jasmine](https://cdnjs.com/libraries/jasmine): Inspired by the course content, I learned how to include, create, and run tests to complement my JavaScript functions to further my confidence in their ability to perform as expected on site.
 
 ### Acknowledgements
 
-- I would like to thank my mentor, Oluwafemi. You really helped give me a direction and plan for how to approach this milestone project. You also provided me with various resources to help me implement features on the site, and I learned a lot from your design input on the site, in particular how to step back from the code and try to view the site as a new visitor.
+- I would like to thank my mentor, Oluwafemi. With each mentoring session I feel I am learning more and more about how to approach web projects, and much of this is down to your guidance. I definitely feel that following your advice has allowed me to acheive a high quality in my projects thus far.
 
-- I also want to thank Code Institute in providing me with information and guides on how to structure my project. I feel I have a good grasp on web development fundamentals as well as a proficiency in Bootstrap due to the modules provided by Code Insitute.
+- I also want to thank Code Institute in providing me with information and guides on how to structure my project. There is always new things for me to learn with JavaScript and I have loved every minute of the course content.
 
-- Lastly I would like to thank the Slack community associated with Code Institute. In particular the "Tutors and Mentors Live Q&A" and "MS1 Planning" call. (Maria, Claire, Tim, and Jim). These call sessions gave me great insight and direction with regards to my milestone project.
-
-https://quotes.rest/
-
-https://8ball.delegator.com/
-
-https://greensock.com/docs/v3/Installation
-
-https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
-
-https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch
-
-https://en.wikipedia.org/wiki/Rubber_duck_debugging
-
-/_
-TODO: 1. Splash screen 2. Interactive button to start chat 3. Messenger style split screen 4. Local Storage to store messages 5. Options 6. API responses from 8ball (check for question marks)
-_/
-
-https://stackoverflow.com/questions/48212286/make-textarea-with-setted-height-grow-when-new-line-is-added
-
-https://stackoverflow.com/questions/8847766/how-to-convert-json-to-csv-format-and-store-in-a-variable X
-
-https://www.valentinog.com/blog/link-download/
-
-https://stackoverflow.com/questions/11485420/how-to-mock-localstorage-in-javascript-unit-tests
-
-https://cdnjs.com/libraries/jasmine
-
-https://github.com/jasmine/jasmine#installation
-
-down the line: extra input types (code snippets, images, etc...)
+- Again I would like to thank the Slack community associated with Code Institute. It is a great way to find inspiration and feel as part of a community who share a similar mindset and goal.
